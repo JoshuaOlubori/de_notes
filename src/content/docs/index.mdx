@@ -1,40 +1,71 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
+title: Data Engineering Foundations
+description: A comprehensive collection of data engineering notes, patterns, and lessons learned from production systems.
 template: splash # Remove or comment out this line to display the site sidebar on this page.
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: Principled trade-offs, battle-tested patterns, and lessons learned from real production systems
   image:
     file: ../../assets/houston.webp
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Start Learning
+      link: /fundamentals/01/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
-      variant: minimal
+    # - text: View on GitHub
+    #   link: https://github.com/yourusername/data-engineering-notes
+    #   icon: external
+    #  variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## What You'll Find Here
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
+  <Card title="Foundations" icon="open-book">
+    Core concepts, failure modes, and the mission of data engineering. Understand what data engineering actually solves and why most pipelines fail.
+  </Card>
+  <Card title="OLTP vs OLAP" icon="seti:db">
+    Deep dive into transactional and analytical workloads. Learn when to use each and how to migrate between them.
+  </Card>
+  <Card title="Batch vs Streaming" icon="rocket">
+    Navigate the latency spectrum. Understand when batch is sufficient and when streaming is essential.
+  </Card>
+  <Card title="Postmortem Analysis" icon="warning">
+    Learn from real production failures. Five detailed case studies covering schema evolution, cascade failures, and data loss.
+  </Card>
+  <Card title="And much more" icon="puzzle">
+    A lot of stuff is covered.
+  </Card>
 </CardGrid>
+
+
+## Philosophy
+
+<Card title="Data Engineering is About Trade-offs" icon="information">
+Every architectural decision involves sacrificing something: consistency for availability, latency for cost, flexibility for governance, simplicity for capability. These notes focus on understanding *when* to make each trade-off, not memorizing the "right" answer.
+
+**Core Principles:**
+- Failure is the teacher—more wisdom lives in postmortems than in product documentation
+- Context is everything—Netflix's architecture is wrong for your startup
+- Simple systems fail less—complexity is a liability that must justify its cost
+- Data quality compounds—invest early or pay forever
+- Observability is non-negotiable—if you can't see it breaking, you can't fix it
+</Card>
+
+## How to Use These Notes
+
+<CardGrid>
+  <Card title="Read Sequentially" icon="list-format">
+    Start with Module 1 (Foundations) and progress through the modules in order. Each builds on concepts from previous modules.
+  </Card>
+  <Card title="Use as Reference" icon="magnifier">
+    Jump directly to specific topics when you need them. Each module is self-contained with practical examples.
+  </Card>
+  <Card title="Learn from Failures" icon="error">
+    Pay special attention to the war stories and postmortem analyses. Real production failures teach more than theoretical concepts.
+  </Card>
+</CardGrid>
+
+---
+
+**Note:** These are living notes, continuously updated with new patterns, failures, and lessons learned. Contributions and corrections are welcome.
