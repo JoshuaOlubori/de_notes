@@ -9,14 +9,14 @@ import { Aside, Card, CardGrid, Tabs, TabItem, Steps } from '@astrojs/starlight/
 
 ## 2.1 Fundamental Design Philosophy
 
-These two paradigms exist because no single system can optimize for both transactional workloads and analytical workloads. The fundamental tension:
+These two paradigms exist because no single system can optimize for both transactional workloads and analytical workloads:
 
 <CardGrid>
   <Card title="OLTP (Online Transaction Processing)" icon="rocket">
-    Optimized for many small, concurrent operations that read and write individual records. The cash register model—fast, reliable, consistent operations on small amounts of data.
+    Optimized for many small, concurrent operations that read and write individual records. It is meant to enable fast, reliable and consistent operations on **small** amounts of data.
   </Card>
   <Card title="OLAP (Online Analytical Processing)" icon="magnifier">
-    Optimized for few large operations that read many records to produce aggregates. The quarterly report model—scanning millions of rows to answer complex business questions.
+    Optimized for **few large** operations that read many records to produce aggregates. Think of a quarterly report scanning millions of rows to answer complex business questions.
   </Card>
 </CardGrid>
 
@@ -32,7 +32,7 @@ These two paradigms exist because no single system can optimize for both transac
 
 ## 2.2 Row-Oriented vs Column-Oriented Storage
 
-The physical storage layout is the key differentiator:
+The physical storage format is the key differentiator:
 ```mermaid
 flowchart TB
     subgraph Row-Oriented ["Row-Oriented Storage (OLTP)"]

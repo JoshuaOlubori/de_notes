@@ -9,11 +9,11 @@ sidebar:
 import { Aside, Card, CardGrid, Tabs, TabItem, Steps, Code } from '@astrojs/starlight/components';
 
 <Aside type="note" title="What This Guide Covers">
-A foundational curriculum spanning the critical concepts, patterns, failures, and decision frameworks that separate junior data engineers from architects who can design systems that scale.
+A foundational curriculum spanning concepts, patterns, failures, and decision frameworks that help junior data engineers progress to architects who can design systems that scale.
 </Aside>
 
 <Aside type="tip" title="The Core Thesis">
-Data engineering is not about tools—it's about making principled trade-offs under uncertainty. Every architectural decision involves sacrificing something: consistency for availability, latency for cost, flexibility for governance, simplicity for capability. Mastery comes from understanding *when* to make each trade-off, not from memorizing the "right" answer.
+Data engineering a lot of times involve considering trade-offs under uncertainty. Every architectural decision involves sacrificing something: consistency for availability, latency for cost, flexibility for governance, simplicity for capability. Mastery comes from understanding *when* to make each trade-off, not from memorizing the "right" answer.
 </Aside>
 
 ## Key Principles
@@ -62,9 +62,9 @@ Most teams optimize only the first term. Architects optimize all five.
 
 ### 1.1 The Core Mission
 
-Data engineering exists because raw data is useless—and worse, it's dangerous. An unprocessed event stream, a corrupted JSON payload, a schema change that silently breaks downstream reports—these aren't edge cases. They're Tuesday.
+Data engineering exists because raw data holds little value and can cause issues if not properly processed. An unprocessed event stream, a corrupted JSON payload, a schema change that silently breaks downstream reports—these aren't edge cases. They're just another Tuesday for a data engineer.
 
-The core mission is deceptively simple: **bridge the gap between raw data and reliable, actionable information**. This involves:
+The core mission is simple: **transform raw data into reliable, actionable information**. This involves:
 
 <Steps>
 
@@ -135,7 +135,7 @@ flowchart LR
 
 #### Silent Data Corruption
 
-The most dangerous failures are the ones nobody notices. A field changes from integer to string upstream. A timezone conversion introduces an off-by-one day error. A join condition silently produces duplicates. Reports continue to render. Dashboards stay green. Decisions get made on wrong data for weeks or months.
+The most dangerous failures are the ones nobody notices: a field changes from integer to string upstream, a timezone conversion introduces an off-by-one day error, a join condition silently produces duplicates. Reports continue to render. Dashboards stay green. Decisions get made on wrong data for weeks or months.
 
 <Aside type="danger" title="War Story">
 At a fintech company, a currency conversion rate was accidentally inverted for 73 days. Every transaction report showed inverted profits/losses. The issue was discovered only when Q3 numbers "didn't feel right" to the CFO. By then, investor communications had been sent with incorrect figures.
@@ -143,11 +143,11 @@ At a fintech company, a currency conversion rate was accidentally inverted for 7
 
 #### Schema Drift
 
-Upstream systems don't notify you when they change. That `user_id` field that was always an integer? Now it's sometimes a string UUID in the mobile app. Your pipeline continues running, casting to integer, and silently converting `"abc-123-def"` to `0`.
+By default, upstream systems don't usually notify you when they change. That `user_id` field that was always an integer? Now it's sometimes a string UUID in the mobile app. Your pipeline continues running, casting to integer, and silently converting `"abc-123-def"` to `0`.
 
 #### Pipeline Debt
 
-The "quick fix" pipeline that was supposed to be temporary—three years ago—is now load-bearing infrastructure. It has no tests, no documentation, and the engineer who wrote it left the company. It processes 40% of your critical business data.
+The "quick fix" pipeline that was supposed to be temporary—three years ago—is now load-bearing infrastructure. It has no tests, no documentation, and the engineer who wrote it left the company. It processes 40% of your business data.
 
 #### Lack of Observability
 
